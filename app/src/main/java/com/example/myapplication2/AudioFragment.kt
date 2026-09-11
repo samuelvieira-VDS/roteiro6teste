@@ -23,10 +23,10 @@ class AudioFragment : Fragment(R.layout.fragment_audio) {
 
         val switchMusica = view.findViewById<Switch>(R.id.switchMusica)
 
-        // Listener do Switch nativo do Android
+
         switchMusica.setOnCheckedChangeListener { _, isChecked ->
             val status = if (isChecked) "Ligada" else "Desligada"
-            // Envia a atualização em tempo real para a Activity
+
             listener?.onConfigUpdated("Música", status)
         }
     }

@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.example.myapplication2.OnConfigChangeListener
 
 class PerfilFragment : Fragment(R.layout.fragment_perfil) {
 
@@ -14,7 +13,7 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        // Conecta a Activity à Interface
+
         if (context is OnConfigChangeListener) {
             listener = context
         }
@@ -28,13 +27,13 @@ class PerfilFragment : Fragment(R.layout.fragment_perfil) {
 
         btnSalvar.setOnClickListener {
             val novoNome = editNome.text.toString()
-            // Envia o dado para a MainActivity
+
             listener?.onConfigUpdated("Nome do Jogador", novoNome)
         }
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener = null // Evita memory leaks
+        listener = null
     }
 }

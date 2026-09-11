@@ -1,14 +1,10 @@
 package com.example.myapplication2
 
-import OnConfigChangeListener
-import PerfilFragment
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity(), OnConfigChangeListener {
 
@@ -20,14 +16,14 @@ class MainActivity : AppCompatActivity(), OnConfigChangeListener {
 
         tvStatus = findViewById(R.id.tvStatus)
 
-        // Inicializa com o Menu Principal
+
         if (savedInstanceState == null) {
             replaceFragment(MenuPrincipalFragment(), false)
         }
 
-        // Configuração dos Botões
+
         findViewById<Button>(R.id.btnMenu).setOnClickListener {
-            // Limpa o back stack e volta para o menu
+
             supportFragmentManager.popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
             replaceFragment(MenuPrincipalFragment(), false)
         }
@@ -45,7 +41,7 @@ class MainActivity : AppCompatActivity(), OnConfigChangeListener {
         }
     }
 
-    // Método para substituir fragments. Note o uso da Back Stack.
+
     private fun replaceFragment(fragment: Fragment, addToBackStack: Boolean) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainer, fragment)
