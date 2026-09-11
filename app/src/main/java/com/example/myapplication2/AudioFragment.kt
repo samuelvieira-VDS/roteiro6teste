@@ -1,5 +1,6 @@
 package com.example.myapplication2
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -18,6 +19,7 @@ class AudioFragment : Fragment(R.layout.fragment_audio) {
         }
     }
 
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
